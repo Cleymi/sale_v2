@@ -1,0 +1,68 @@
+<div
+  id="layout-config"
+  class="layout-config"
+  [ngClass]="{ 'layout-config-active': appMain.configActive }"
+  (click)="appMain.onConfigClick($event)"
+>
+  <!-- <a style="cursor: pointer" id="layout-config-button" class="layout-config-button"
+    (click)="onConfigButtonClick($event)">
+    <i class="pi pi-cog"></i>
+  </a> -->
+  <button
+    pButton
+    pRipple
+    type="button"
+    icon="pi pi-times"
+    class="p-button-rounded p-button-danger p-button-text layout-config-close"
+    (click)="onConfigButtonClick($event)"
+  ></button>
+
+  <div class="layout-config-content">
+    <h6 class="mt-0">Escala de componente</h6>
+    <div class="config-scale">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-minus"
+        (click)="decrementScale()"
+        class="p-button-rounded p-button-text"
+        [disabled]="scale === scales[0]"
+      ></button>
+      <i
+        *ngFor="let item of scales"
+        class="pi pi-circle-fill"
+        [ngClass]="{ 'scale-active': item === scale }"
+      ></i>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-plus"
+        (click)="incrementScale()"
+        class="p-button-rounded p-button-text"
+        [disabled]="scale === scales[scales.length - 1]"
+      ></button>
+    </div>
+
+    <h6>Cambiar temas</h6>
+    <div class="grid free-themes">
+      <div class="col-3 text-center">
+        <button class="p-link" (click)="changeTheme('lara-light-teal', false)">
+          <img
+            src="assets/layout/images/themes/lara-light-teal.png"
+            alt="Lara Light Teal"
+          />
+        </button>
+      </div>
+      <div class="col-3 text-center">
+        <button class="p-link" (click)="changeTheme('vela-blue', true)">
+          <img
+            src="assets/layout/images/themes/lara-dark-teal.png"
+            alt="Lara Dark Teal"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

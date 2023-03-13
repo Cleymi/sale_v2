@@ -1,0 +1,51 @@
+<div class="layout-topbar">
+  <a class="layout-topbar-logo" routerLink="home">
+    <img
+      src="assets/layout/images/{{
+        appMain.config.dark ? 'logo-dark' : 'logo-white'
+      }}.png"
+      alt="logo"
+    />
+    <span>Gaby Store</span>
+  </a>
+
+  <span
+    class="p-link layout-menu-button layout-topbar-button"
+    (click)="appMain.toggleMenu($event)"
+  >
+    <i class="pi pi-bars"></i>
+  </span>
+
+  <span
+    class="p-link layout-topbar-menu-button layout-topbar-button"
+    (click)="appMain.toggleTopMenu($event)"
+  >
+    <i class="pi pi-ellipsis-v"></i>
+  </span>
+
+  <div
+    class="layout-topbar-menu"
+    [ngClass]="{ 'layout-topbar-menu-mobile-active': appMain.topMenuActive }"
+  >
+    <span (click)="onConfigButtonClick($event)" class="p-link layout-topbar-button">
+      <i class="fas fa-palette palette-color"></i>
+      <span>Tema</span>
+    </span>
+    <a routerLink="" class="p-link layout-topbar-button">
+      <i class="fas fa-calendar-alt"></i>
+      <span>Calendario</span>
+    </a>
+    <a routerLink="" class="p-link layout-topbar-button">
+      <i class="fas fa-cog"></i>
+      <span>Configuración</span>
+    </a>
+    <a routerLink="" class="p-link layout-topbar-button">
+      <i class="fas fa-user-alt"></i>
+      <span>Perfil</span>
+    </a>
+    <button class="p-link layout-topbar-button" (click)="logOut()">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Cerrar sesión</span>
+    </button>
+  </div>
+</div>

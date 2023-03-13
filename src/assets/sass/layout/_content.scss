@@ -1,0 +1,23 @@
+.layout-main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 7rem 2rem 2rem 4rem;
+  transition: margin-left $transitionDuration;
+}
+
+.layout-main {
+  flex: 1 1 auto;
+
+  .p-button.p-button-sm.p-button-text {
+    padding: 0;
+    font-size: 0.875rem;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    .p-button-icon {
+      font-size: 18px;
+    }
+  }
+}

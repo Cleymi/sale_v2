@@ -1,0 +1,49 @@
+<div class="card mb-0 p-3">
+  <p-table [value]="customers" responsiveLayout="scroll" styleClass="p-datatable-sm">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>#</th>
+        <th>Servicio</th>
+        <th>Nombre</th>
+        <th>Cuenta</th>
+        <th>Usuario</th>
+        <th>Contraseña</th>
+        <th>Celular</th>
+        <th>Pantallas</th>
+        <th>PIN</th>
+        <th>Costo</th>
+        <th>Días</th>
+        <th>País</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+      <tr>
+        <td>{{rowIndex + 1}}</td>
+        <td>{{product.service}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.account}}</td>
+        <td>{{product.username}}</td>
+        <td>{{product.password}}</td>
+        <td>{{product.cellphone}}</td>
+        <td>{{product.windows}}</td>
+        <td>{{product.pin}}</td>
+        <td>{{product.ammount}}</td>
+        <td>{{product.days}}</td>
+        <td>{{product.country}}</td>
+        <td>
+          <p-badge [value]="product.state"></p-badge>
+        </td>
+        <td>
+          <button pButton pRipple type="button" icon="fab fa-btc"
+            class="p-button-rounded p-button-sm p-button-text p-button-info mr-2" pTooltip="Cobrar"
+            tooltipPosition="bottom" (click)="hola()"></button>
+          <button pButton pRipple type="button" icon="fas fa-bell"
+            class="p-button-rounded p-button-sm p-button-text p-button-help" pTooltip="Notificar"
+            tooltipPosition="bottom" (click)="hola()"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
