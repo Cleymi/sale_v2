@@ -32,7 +32,7 @@
     pRipple
   >
     <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
-    <span>{{ item.label }}</span>
+    <span class="text-lg">{{ item.label }}</span>
     <span class="p-tag p-badge ml-auto" *ngIf="item.badge">{{ item.badge }}</span>
     <i
       class="pi pi-fw {{ active ? 'pi-angle-up' : 'pi-angle-down' }} ml-auto"
