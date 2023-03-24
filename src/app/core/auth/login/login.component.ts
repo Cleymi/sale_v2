@@ -3,47 +3,61 @@ import { ConfigService } from '@service/app.config.service';
 import { AppConfig } from '@models/appconfig';
 import { Subscription } from 'rxjs';
 import { AuthService } from '@service/auth.service';
+import { Router } from '@angular/router';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { Validations } from '@app/core/hooks/validation';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [`
-        :host ::ng-deep .pi-eye,
-        :host ::ng-deep .pi-eye-slash {
-            transform:scale(1.6);
-            margin-right: 1rem;
-            color: var(--primary-color) !important;
-        }
-        :host ::ng-deep .p-password{
-          width: 100%;
-        }
-    `]
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   valCheck: string[] = ['remember'];
-  password: string;
   config: AppConfig;
   subscription: Subscription;
 
+  loginForm = this.fb.group({
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+  });
+
   constructor(
     public configService: ConfigService,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private fb: UntypedFormBuilder,
+    private router: Router,
+    private validations: Validations,
+  ) {}
 
   ngOnInit(): void {
-    this.configuration()
+    this.configuration();
   }
 
   configuration() {
     this.config = this.configService.config;
-    this.subscription = this.configService.configUpdate$.subscribe(config => {
+    this.subscription = this.configService.configUpdate$.subscribe((config) => {
       this.config = config;
     });
   }
 
-  logIn() {
-    this.authService.logIn()
+  onLogin(): void {
+    if (this.loginForm.invalid) return;
+    this.authService.login(this.loginForm.value).subscribe((res) => {
+      if (res.data.user.super_user) {
+        this.router.navigate(['home']);
+      } else {
+        this.router.navigate(['record-sale']);
+      }
+    });
+  }
+
+  getErrorMessage(field: string): string {
+    return this.validations.getErrorMessage(field, this.loginForm);
+  }
+
+  isValidField(field: string): boolean {
+    return this.validations.isValidField(field, this.loginForm);
   }
 
   ngOnDestroy(): void {
@@ -51,5 +65,4 @@ export class LoginComponent implements OnInit {
       this.subscription.unsubscribe();
     }
   }
-
 }

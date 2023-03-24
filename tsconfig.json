@@ -7,7 +7,7 @@
       "@app/*": ["src/app/*"],
       "@models/*": ["src/app/core/models/*"],
       "@service/*": ["src/app/core/service/*"],
-      "@hook/*": ["src/app/core/hooks/*"],
+      "@hooks/*": ["src/app/core/hooks/*"],
       "@guards/*": ["src/app/core/auth/guards/*"]
     },
     "outDir": "./dist/out-tsc",
