@@ -6,7 +6,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@models/*": ["src/app/core/models/*"],
-      "@service/*": ["src/app/core/service/*"],
+      "@services/*": ["src/app/core/services/*"],
       "@hooks/*": ["src/app/core/hooks/*"],
       "@guards/*": ["src/app/core/auth/guards/*"]
     },

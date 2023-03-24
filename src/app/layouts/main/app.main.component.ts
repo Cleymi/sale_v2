@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, OnDestroy, Renderer2, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { AppComponent } from '../../app.component';
-import { ConfigService } from '@service/app.config.service';
+import { ConfigService } from '@services/app.config.service';
 import { AppConfig } from '@models/appconfig';
 import { Subscription } from 'rxjs';
 

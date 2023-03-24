@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
-
 export class Validations {
-
   getErrorMessage(field: string, form): string {
-    let message;
+    let message: string;
 
     let campo = form.get(field);
     if (campo.errors.required) {
@@ -35,7 +33,7 @@ export class Validations {
   soloNumeros(e) {
     var key = window.event ? e.keyCode : e.which;
     if (key < 48 || key > 57) {
-      return e.preventDefault()
+      return e.preventDefault();
     }
   }
 }

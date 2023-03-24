@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from '@service/app.config.service';
+import { ConfigService } from '@services/app.config.service';
 import { AppConfig } from '@models/appconfig';
 import { Subscription } from 'rxjs';
-import { AuthService } from '@service/auth.service';
+import { AuthService } from '@services/auth.service';
 import { Router } from '@angular/router';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Validations } from '@app/core/hooks/validation';

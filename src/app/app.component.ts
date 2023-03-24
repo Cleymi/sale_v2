@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { getLocaleCurrencySymbol, getCurrencySymbol } from "@angular/common";
-import { ConfigService } from '@service/app.config.service';
+import { ConfigService } from '@services/app.config.service';
 
 @Component({
   selector: 'app-root',
