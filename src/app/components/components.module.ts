@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ComponentsRoutingModule } from './components-routing.module';
 import { ComponentsComponent } from './components.component';
 
 import { EmptyComponent } from './empty/empty.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products/products.component';
-
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,7 @@ import { ProductsComponent } from './products/products.component';
     ComponentsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    PrimeNgModule
-  ]
+    PrimeNgModule,
+  ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
