@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: "full"
+    pathMatch: 'full',
   },
   {
     path: '',
@@ -17,22 +17,28 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import("./components/components.module").then(m => m.ComponentsModule)
+        loadChildren: () =>
+          import('./components/components.module').then((m) => m.ComponentsModule),
       },
-    ]
+    ],
   },
   {
-    path: 'auth',
-    loadChildren: () => import("./core/auth/auth.module").then(m => m.AuthModule)
+    path: 'login',
+    loadChildren: () => import('./core/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

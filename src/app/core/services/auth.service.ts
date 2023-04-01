@@ -58,7 +58,7 @@ export class AuthService {
     ['user', 'super_user', 'permissions', 'sales', 'token'].forEach((item) => {
       localStorage.removeItem(item);
     });
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/login']);
     return this.http.post(this.apiUrl + '/auth/logout', '');
   }
 }
